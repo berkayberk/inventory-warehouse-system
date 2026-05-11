@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.warehouse.controller.AdminDashboardController"
+            style="-fx-background-color: #ecf0f1;">
+
+    <!-- ===== TOP BAR ===== -->
+    <top>
+        <HBox style="-fx-background-color: #2c3e50; -fx-padding: 12; -fx-spacing: 20;"
+              alignment="CENTER_LEFT">
+            <Label text="Inventory Warehouse IS – Admin" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="welcomeLabel"   style="-fx-text-fill: #ecf0f1;"/>
+            <Label fx:id="cashBalanceLabel" style="-fx-text-fill: #2ecc71; -fx-font-weight: bold;"/>
+            <Button text="Logout" onAction="#logout" styleClass="btn-danger"/>
+        </HBox>
+    </top>
+
+    <!-- ===== LEFT SIDEBAR ===== -->
+    <left>
+        <VBox spacing="6" style="-fx-background-color: #34495e; -fx-padding: 16; -fx-min-width: 200;">
+            <Label text="MANAGEMENT" style="-fx-text-fill: #95a5a6; -fx-font-size: 11;"/>
+            <Button text="Users"          onAction="#openUserManagement"     maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Suppliers"      onAction="#openSupplierManagement" maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Clients"        onAction="#openClientManagement"   maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Goods"          onAction="#openGoodManagement"     maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Separator style="-fx-background-color: #7f8c8d;"/>
+            <Label text="TRANSACTIONS" style="-fx-text-fill: #95a5a6; -fx-font-size: 11;"/>
+            <Button text="Purchase Invoice" onAction="#openPurchaseInvoice"  maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Sale Invoice"     onAction="#openSaleInvoice"      maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Invoice List"     onAction="#openInvoiceList"      maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Cash Register"    onAction="#openCashRegister"     maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Separator style="-fx-background-color: #7f8c8d;"/>
+            <Label text="ANALYSIS" style="-fx-text-fill: #95a5a6; -fx-font-size: 11;"/>
+            <Button text="Reports"          onAction="#openReports"          maxWidth="Infinity" styleClass="sidebar-btn"/>
+        </VBox>
+    </left>
+
+    <!-- ===== CENTRE ===== -->
+    <center>
+        <VBox spacing="18" style="-fx-padding: 24;">
+
+            <!-- Alert Summary -->
+            <HBox spacing="16">
+                <Label fx:id="lowStockCountLabel"
+                       style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 8 16; -fx-font-size: 14; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <!-- Low-stock table -->
+            <Label text="Low-stock Items" style="-fx-font-size: 15; -fx-font-weight: bold;"/>
+            <TableView fx:id="lowStockTable" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="colGoodName"  text="Product"  prefWidth="220"/>
+                    <TableColumn fx:id="colCategory"  text="Category" prefWidth="140"/>
+                    <TableColumn fx:id="colQty"       text="Qty"      prefWidth="80"/>
+                    <TableColumn fx:id="colThreshold" text="Min"      prefWidth="80"/>
+                </columns>
+            </TableView>
+
+            <!-- Recent activity -->
+            <Label text="Recent Activity" style="-fx-font-size: 15; -fx-font-weight: bold;"/>
+            <TableView fx:id="activityTable" prefHeight="220">
+                <columns>
+                    <TableColumn fx:id="colLogDate"   text="Date/Time" prefWidth="200"/>
+                    <TableColumn fx:id="colLogUser"   text="User"      prefWidth="140"/>
+                    <TableColumn fx:id="colLogAction" text="Action"    prefWidth="240"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.warehouse.controller.ReportController"
+            style="-fx-background-color: #ecf0f1;">
+
+    <top>
+        <VBox style="-fx-background-color: #2c3e50; -fx-padding: 10 16;" spacing="6">
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Button text="← Back" onAction="#goBack" styleClass="btn-secondary"/>
+                <Label text="Reports" style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold;"/>
+            </HBox>
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="From:" style="-fx-text-fill: #ccc;"/>
+                <DatePicker fx:id="fromDate" prefWidth="150"/>
+                <Label text="To:" style="-fx-text-fill: #ccc;"/>
+                <DatePicker fx:id="toDate" prefWidth="150"/>
+                <Button text="Refresh" onAction="#handleRefresh" styleClass="btn-primary"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="totalExpensesLabel" style="-fx-text-fill: #e74c3c; -fx-font-weight: bold;"/>
+                <Label fx:id="totalIncomeLabel"   style="-fx-text-fill: #2ecc71; -fx-font-weight: bold;"/>
+                <Label fx:id="profitLabel"        style="-fx-text-fill: #f1c40f; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane style="-fx-padding: 8;">
+
+            <!-- Supplies tab -->
+            <Tab text="Supplies" closable="false">
+                <TableView fx:id="suppliesTable">
+                    <columns>
+                        <TableColumn fx:id="colSupDate"     text="Date"     prefWidth="140"/>
+                        <TableColumn fx:id="colSupNumber"   text="Invoice"  prefWidth="150"/>
+                        <TableColumn fx:id="colSupSupplier" text="Supplier" prefWidth="180"/>
+                        <TableColumn fx:id="colSupTotal"    text="Total"    prefWidth="100"/>
+                        <TableColumn fx:id="colSupOperator" text="Operator" prefWidth="120"/>
+                    </columns>
+                </TableView>
+            </Tab>
+
+            <!-- Sales tab -->
+            <Tab text="Sales" closable="false">
+                <TableView fx:id="salesTable">
+                    <columns>
+                        <TableColumn fx:id="colSaleDate"   text="Date"    prefWidth="140"/>
+                        <TableColumn fx:id="colSaleNumber" text="Invoice" prefWidth="150"/>
+                        <TableColumn fx:id="colSaleClient" text="Client"  prefWidth="180"/>
+                        <TableColumn fx:id="colSaleTotal"  text="Total"   prefWidth="100"/>
+                        <TableColumn fx:id="colSaleOp"     text="Operator" prefWidth="120"/>
+                    </columns>
+                </TableView>
+            </Tab>
+
+            <!-- Stock tab -->
+            <Tab text="Stock" closable="false">
+                <TableView fx:id="stockTable">
+                    <columns>
+                        <TableColumn fx:id="colStockName"  text="Product"  prefWidth="220"/>
+                        <TableColumn fx:id="colStockCat"   text="Category" prefWidth="130"/>
+                        <TableColumn fx:id="colStockQty"   text="Qty"      prefWidth="80"/>
+                        <TableColumn fx:id="colStockPrice" text="Price"    prefWidth="90"/>
+                        <TableColumn fx:id="colStockValue" text="Value"    prefWidth="100"/>
+                        <TableColumn fx:id="colStockStatus" text="Status"  prefWidth="80"/>
+                    </columns>
+                </TableView>
+            </Tab>
+
+            <!-- Cash tab -->
+            <Tab text="Cash Movements" closable="false">
+                <TableView fx:id="cashTable">
+                    <columns>
+                        <TableColumn fx:id="colCashDate"   text="Date/Time"  prefWidth="160"/>
+                        <TableColumn fx:id="colCashType"   text="Type"       prefWidth="100"/>
+                        <TableColumn fx:id="colCashAmount" text="Amount"     prefWidth="100"/>
+                        <TableColumn fx:id="colCashDesc"   text="Description" prefWidth="240"/>
+                        <TableColumn fx:id="colCashOp"     text="Operator"   prefWidth="130"/>
+                    </columns>
+                </TableView>
+            </Tab>
+
+            <!-- Activity log tab -->
+            <Tab text="Activity Log" closable="false">
+                <TableView fx:id="logTable">
+                    <columns>
+                        <TableColumn fx:id="colLogDate"   text="Date/Time" prefWidth="160"/>
+                        <TableColumn fx:id="colLogUser"   text="User"      prefWidth="130"/>
+                        <TableColumn fx:id="colLogAction" text="Action"    prefWidth="200"/>
+                        <TableColumn fx:id="colLogDetail" text="Details"   prefWidth="320"/>
+                    </columns>
+                </TableView>
+            </Tab>
+
+        </TabPane>
+    </center>
+</BorderPane>
