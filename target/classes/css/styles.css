@@ -1,0 +1,176 @@
+/* ============================================================
+   styles.css  – Inventory Warehouse IS
+   ============================================================ */
+
+/* ---------- Root variables ---------- */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 6 16;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+.btn-primary:hover  { -fx-background-color: #3498db; }
+.btn-primary:pressed { -fx-background-color: #1a6fa1; }
+
+.btn-secondary {
+    -fx-background-color: #7f8c8d;
+    -fx-text-fill: white;
+    -fx-padding: 6 16;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+.btn-secondary:hover { -fx-background-color: #95a5a6; }
+
+.btn-danger {
+    -fx-background-color: #c0392b;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 6 16;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+.btn-danger:hover  { -fx-background-color: #e74c3c; }
+.btn-danger:pressed { -fx-background-color: #922b21; }
+
+.btn-success {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 6 16;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+.btn-success:hover { -fx-background-color: #2ecc71; }
+
+/* ---------- Sidebar buttons ---------- */
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ecf0f1;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 8 12;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+    -fx-font-size: 13;
+}
+.sidebar-btn:hover  { -fx-background-color: #4a6580; }
+.sidebar-btn:pressed { -fx-background-color: #1a252f; }
+
+/* ---------- Text fields & areas ---------- */
+.text-field, .text-area, .password-field {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-padding: 5 8;
+}
+.text-field:focused, .text-area:focused, .password-field:focused {
+    -fx-border-color: #3498db;
+}
+
+/* ---------- ComboBox ---------- */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 3;
+    -fx-padding: 2 4;
+}
+.combo-box:focused { -fx-border-color: #3498db; }
+
+/* ---------- TableView ---------- */
+.table-view {
+    -fx-border-color: #bdc3c7;
+    -fx-background-color: white;
+}
+.table-view .column-header {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.table-view .column-header-background {
+    -fx-background-color: #34495e;
+}
+.table-row-cell:odd  { -fx-background-color: #f5f6fa; }
+.table-row-cell:even { -fx-background-color: white; }
+.table-row-cell:selected { -fx-background-color: #3498db; -fx-text-fill: white; }
+.table-row-cell:hover  { -fx-background-color: #d6eaf8; }
+
+/* ---------- Labels ---------- */
+.label-title {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+.label-section {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+}
+.label-error {
+    -fx-text-fill: #e74c3c;
+    -fx-font-size: 12;
+}
+.label-success {
+    -fx-text-fill: #27ae60;
+    -fx-font-size: 12;
+}
+
+/* ---------- TabPane ---------- */
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-background-color: #bdc3c7;
+    -fx-padding: 6 14;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+}
+.tab .tab-label { -fx-text-fill: #2c3e50; }
+.tab:selected .tab-label { -fx-text-fill: white; -fx-font-weight: bold; }
+
+/* ---------- SplitPane ---------- */
+.split-pane {
+    -fx-background-color: #ecf0f1;
+}
+.split-pane-divider {
+    -fx-background-color: #bdc3c7;
+    -fx-padding: 0 1;
+}
+
+/* ---------- Titled pane ---------- */
+.titled-pane > .title {
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* ---------- Scrollbar ---------- */
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #95a5a6;
+    -fx-background-radius: 3;
+}
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+/* ---------- DatePicker ---------- */
+.date-picker {
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 3;
+}
+.date-picker:focused { -fx-border-color: #3498db; }
+
+/* ---------- CheckBox ---------- */
+.check-box .box { -fx-border-color: #bdc3c7; }
+.check-box:selected .box { -fx-background-color: #2980b9; }
+
+/* ---------- Separator ---------- */
+.separator .line { -fx-border-color: #bdc3c7; }

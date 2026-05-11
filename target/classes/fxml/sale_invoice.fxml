@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.warehouse.controller.SaleInvoiceController"
+            style="-fx-background-color: #ecf0f1;">
+
+    <top>
+        <VBox style="-fx-background-color: #16a085; -fx-padding: 10 16;" spacing="6">
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Button text="← Back" onAction="#goBack" styleClass="btn-secondary"/>
+                <Label text="New Sale Invoice" style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold;"/>
+            </HBox>
+            <HBox spacing="16" alignment="CENTER_LEFT">
+                <Label text="Client:" style="-fx-text-fill: #ccc;"/>
+                <ComboBox fx:id="clientCombo" prefWidth="260"/>
+                <Label text="Notes:" style="-fx-text-fill: #ccc;"/>
+                <TextField fx:id="notesArea" prefWidth="300" promptText="Optional notes"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="totalLabel"
+                       style="-fx-text-fill: #f1c40f; -fx-font-size: 16; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.5">
+
+            <!-- GOODS LIST -->
+            <VBox spacing="8" style="-fx-padding: 16; -fx-background-color: #fff;">
+                <Label text="Available Goods" style="-fx-font-size: 13; -fx-font-weight: bold;"/>
+                <TableView fx:id="goodsTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colGoodName"   text="Product"    prefWidth="200"/>
+                        <TableColumn fx:id="colSalesPrice" text="Sale Price" prefWidth="100"/>
+                        <TableColumn fx:id="colCurrentQty" text="Stock"      prefWidth="80"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="Qty:"/>
+                    <TextField fx:id="qtyField" prefWidth="80" promptText="1"/>
+                    <Button text="Add to Cart →" onAction="#handleAddToCart" styleClass="btn-primary"/>
+                </HBox>
+            </VBox>
+
+            <!-- CART -->
+            <VBox spacing="8" style="-fx-padding: 16; -fx-background-color: #f9f9f9;">
+                <Label text="Cart" style="-fx-font-size: 13; -fx-font-weight: bold;"/>
+                <TableView fx:id="cartTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colCartName"     text="Product"  prefWidth="180"/>
+                        <TableColumn fx:id="colCartQty"      text="Qty"      prefWidth="70"/>
+                        <TableColumn fx:id="colCartSubtotal" text="Subtotal" prefWidth="100"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="8" alignment="CENTER_RIGHT">
+                    <Button text="Remove" onAction="#handleRemoveFromCart" styleClass="btn-danger"/>
+                    <Button text="Submit Invoice" onAction="#handleSubmit" styleClass="btn-primary"/>
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

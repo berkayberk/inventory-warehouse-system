@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.warehouse.controller.OperatorDashboardController"
+            style="-fx-background-color: #ecf0f1;">
+
+    <!-- TOP -->
+    <top>
+        <HBox style="-fx-background-color: #27ae60; -fx-padding: 12; -fx-spacing: 20;"
+              alignment="CENTER_LEFT">
+            <Label text="Inventory Warehouse IS – Operator" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="welcomeLabel" style="-fx-text-fill: white;"/>
+            <Button text="Logout" onAction="#logout" styleClass="btn-danger"/>
+        </HBox>
+    </top>
+
+    <!-- LEFT -->
+    <left>
+        <VBox spacing="6" style="-fx-background-color: #2ecc71; -fx-padding: 16; -fx-min-width: 200;">
+            <Label text="ACTIONS" style="-fx-text-fill: #fff; -fx-font-size: 11;"/>
+            <Button text="Goods"            onAction="#openGoodList"         maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Purchase Invoice" onAction="#openPurchaseInvoice"  maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Sale Invoice"     onAction="#openSaleInvoice"      maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Invoice List"     onAction="#openInvoiceList"      maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Cash Register"    onAction="#openCashRegister"     maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label fx:id="cashBalanceLabel"  style="-fx-text-fill: #fff; -fx-font-size: 11;"/>
+            <Label fx:id="lowStockCountLabel" style="-fx-text-fill: #fff; -fx-font-size: 11;"/>
+        </VBox>
+    </left>
+
+    <!-- CENTRE -->
+    <center>
+        <VBox spacing="18" style="-fx-padding: 24;">
+            <Label text="Current Stock" style="-fx-font-size: 15; -fx-font-weight: bold;"/>
+            <TableView fx:id="stockTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colName"     text="Product"       prefWidth="260"/>
+                    <TableColumn fx:id="colCategory" text="Category"      prefWidth="140"/>
+                    <TableColumn fx:id="colQty"      text="Qty"           prefWidth="80"/>
+                    <TableColumn fx:id="colMin"      text="Min Threshold" prefWidth="110"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
